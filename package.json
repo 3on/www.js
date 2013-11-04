@@ -1,0 +1,17 @@
+{
+  "name": "www.js",
+  "version": "0.0.1",
+  "description": "simple web server delivering static files",
+  "main": "server.js",
+  "bin": {
+    "www.js": "bin.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "3on",
+  "license": "BSD",
+  "dependencies": {
+    "express": "~3.4.1"
+  }
+}
