@@ -1,6 +1,3 @@
-www.js
-===
-
 Simple static assets server in node using express.js
 Put express's nice index page and clean log to a good use to serves static content.
 
