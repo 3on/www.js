@@ -3,7 +3,8 @@ var express = require("express"),
 	open = require("open");
 
 var app = express(),
-	cwd = process.cwd(),
+	CWD = process.cwd(),
+	PATH = CWD,
 	DEFAULT_PORT = 8042,
 	PORT = DEFAULT_PORT;
 
@@ -27,8 +28,13 @@ if (argv.p || argv.port ) {
 	PORT = (Number.isFinite(PORT))? PORT : DEFAULT_PORT;
 }
 
-app.use(express.directory(cwd));
-app.use(express.static(cwd));
+if (argv.p || argv.port ) {
+	PORT = argv.port || argv.p;
+	PORT = (Number.isFinite(PORT))? PORT : DEFAULT_PORT;
+}
+
+app.use(express.directory(PATH));
+app.use(express.static(PATH));
 
 console.log("Start server on port: " + PORT);
 app.listen(PORT);
