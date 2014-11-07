@@ -9,7 +9,7 @@ sudo npm install -g www.js
 
 Usage
 ---
-```bash
+```text
 usage: www.js [-p port] [-loh] [path]
 -p, --port PORT	<path>	Port on wich to listen to
 -L, --no-logging	<path>	Turn off logging (on )
