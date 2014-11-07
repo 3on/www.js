@@ -7,8 +7,6 @@ var app = express(),
 	DEFAULT_PORT = 8042,
 	PORT = DEFAULT_PORT;
 
-console.log(argv, process.argv)
-
 if (argv.h || argv.help) {
 	console.log("www.js 0.4.2 - by Jr@ailleurs.me");
 	console.log("");
