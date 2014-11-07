@@ -23,20 +23,20 @@ if (!argv.L && !argv["no-logging"]) {
 	app.use(express.logger('dev'));
 }
 
-if (argv.p || argv.port ) {
+if (argv.p || argv.port) {
 	PORT = argv.port || argv.p;
 	PORT = (Number.isFinite(PORT))? PORT : DEFAULT_PORT;
 }
 
-if (argv.p || argv.port ) {
-	PORT = argv.port || argv.p;
-	PORT = (Number.isFinite(PORT))? PORT : DEFAULT_PORT;
+if (argv._.length > 0) {
+	PATH = argv._[0];
 }
 
 app.use(express.directory(PATH));
 app.use(express.static(PATH));
 
 console.log("Start server on port: " + PORT);
+console.log("Serving path: " + PATH);
 app.listen(PORT);
 
 if(argv.o || argv.open) {
