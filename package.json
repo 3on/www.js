@@ -1,17 +1,35 @@
 {
   "name": "www.js",
-  "version": "0.0.1",
-  "description": "simple web server delivering static files",
+  "version": "0.4.2",
+  "description": "Simple web server for static file delivering",
   "main": "server.js",
   "bin": {
     "www.js": "bin.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "3on",
   "license": "BSD",
   "dependencies": {
-    "express": "~3.4.1"
-  }
+    "express": "~3.4.1",
+    "minimist": "^1.1.0",
+    "open": "0.0.5"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3on/www.js"
+  },
+  "keywords": [
+    "web",
+    "server",
+    "static",
+    "files"
+  ],
+  "bugs": {
+    "url": "https://github.com/3on/www.js/issues"
+  },
+  "homepage": "https://github.com/3on/www.js"
 }
