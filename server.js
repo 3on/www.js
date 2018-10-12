@@ -32,6 +32,12 @@ if (argv._.length > 0) {
 	PATH = argv._[0];
 }
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.use(express.directory(PATH));
 app.use(express.static(PATH));
 
