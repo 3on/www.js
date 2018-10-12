@@ -1,6 +1,9 @@
 var express = require("express"),
 	argv = require("minimist")(process.argv.slice(2)),
-	open = require("open");
+	open = require("open"),
+	logger = require('morgan'),
+	serveIndex = require('serve-index'),
+	serveStatic = require('serve-static');
 
 var app = express(),
 	CWD = process.cwd(),
@@ -9,7 +12,7 @@ var app = express(),
 	PORT = DEFAULT_PORT;
 
 if (argv.h || argv.help) {
-	console.log("www.js 0.4.2 - by Jr@ailleurs.me");
+	console.log("www.js 0.4.4 - by Jr@ailleurs.me");
 	console.log("");
 	console.log("usage: www.js [-p port] [-loh] [path]");
 	console.log("-p, --port PORT\t<path>\tPort on wich to listen to");
@@ -20,7 +23,7 @@ if (argv.h || argv.help) {
 }
 
 if (!argv.L && !argv["no-logging"]) {
-	app.use(express.logger('dev'));
+	app.use(logger('dev'));
 }
 
 if (argv.p || argv.port) {
@@ -38,8 +41,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(express.directory(PATH));
-app.use(express.static(PATH));
+app.use(serveIndex(PATH));
+app.use(serveStatic(PATH));
 
 console.log("Start server on port: " + PORT);
 console.log("Serving path: " + PATH);
